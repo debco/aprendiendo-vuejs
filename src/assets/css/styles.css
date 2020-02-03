@@ -90,8 +90,8 @@ body {
     transition: 300ms all;
 }
 
-#menu a:hover {
-    color: #f13e3e;
+#menu a:hover, #menu .active {
+    color: #2c941e;
 }
 
 #slider {
@@ -334,7 +334,21 @@ textarea {
     border: none;
 }
 
+.yeargreen {
+    background: green !important;
+    color: white !important;
+    padding: 10px !important;
+    width: 111px !important;
+    text-align: center !important;
+}
 
+.yearred {
+    background: red !important;
+    color: white !important;
+    padding: 10px !important;
+    width: 111px !important;
+    text-align: center !important;
+}
 /*RESPONSIVE*/
 
 
