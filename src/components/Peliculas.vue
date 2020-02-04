@@ -3,6 +3,11 @@
     <div class="center">
       <section id="content">
         <h1 class="subheader">Peliculas</h1>
+        <div class="mis-datos" v-if="misDatos">
+          {{misDatos}}
+        {{web | mayusculas | concatenaYear('avcm')}}
+        </div>
+        <h2 class="subheader">La pelicula favorita es</h2>
         <div class="favorita" v-if="favorita">
             <h2>{{favorita.title}}</h2>
         </div>
@@ -39,6 +44,10 @@ export default {
   filters:{
       mayusculas(value){
           return value.toUpperCase();
+      },
+      concatenaYear(value, message){
+        var date = new Date();
+        return value + '' + date.getFullYear() + ' '+ message;
       }
   },
   computed: {
@@ -48,10 +57,16 @@ export default {
               peliculasMod[i].title = peliculasMod[i].title.toUpperCase();
           }
           return peliculasMod;
+      },
+      misDatos(){
+        return this.nombre + ' ' + this.apellidos + ' ' + this.web;
       }
   },
   data() {
     return {
+      nombre: 'deco',
+      apellidos: 'cachique',
+      web:'garabateador.online',
       favorita: null,
       peliculas: [
         {
