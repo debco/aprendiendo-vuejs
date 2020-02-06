@@ -4,24 +4,8 @@
     <div class="center">
       <section id="content">
         <h2 class="subheader">Últimos artículos</h2>
-        <!--Listado articulos-->
         <div id="articles">
-          <article class="article-item" id="article-template">
-            <div class="image-wrap">
-              <img
-                src="https://unhabitatmejor.leroymerlin.es/sites/default/files/styles/header_category/public/2018-10/4%20paisaje%20macedonia.jpg?itok=AELknmF8"
-                alt="Paisaje"
-              />
-            </div>
-            <h2>Articulo de prueba</h2>
-            <span class="date">
-              Hace 5 minutos
-            </span>
-            <a href="#">Leer más</a>
-
-            <div class="clearfix"></div>
-          </article>
-          <!--AÑADIR ARTICULOS VIA JS-->
+          <Articles v-bind:articles="articles"></Articles>
         </div>
       </section>
       <Sidebar></Sidebar>
@@ -32,11 +16,36 @@
 <script>
 import Slider from "./Slider.vue";
 import Sidebar from "./Sidebar.vue";
+import axios from "axios";
+import Articles from './Articles.vue';
+import Global from '../Global';
+
 export default {
   name: "LastArticles",
   components: {
     Slider,
-    Sidebar
+    Sidebar,
+    Articles
+  },
+  mounted() {
+    this.getLastArticles();
+  },
+  data() {
+    return {
+      url: Global.url,
+      articles: []
+    };
+  },
+  methods: {
+    getLastArticles() {
+      axios.get(this.url+"articles/true").then(res => {
+        if (res.data.status == "success") {
+          this.articles = res.data.articles;
+
+         // console.log(this.articles);
+        }
+      });
+    }
   }
 };
 </script>

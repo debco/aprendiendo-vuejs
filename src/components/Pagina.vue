@@ -25,20 +25,20 @@ export default {
     },
     created(){
         // eslint-disable-next-line no-console
-        console.log('componente creado');
+        //console.log('componente creado');
     },
     mounted(){
         this.id_desde_url = this.$route.params.id;
         // eslint-disable-next-line no-console
-        console.log('componente montado');
+        //console.log('componente montado');
     },
     updated(){
         // eslint-disable-next-line no-console
-        console.log('componente actualizado');
+        //console.log('componente actualizado');
     },
     destroyed(){
         // eslint-disable-next-line no-console
-        console.log('componente eliminado');
+        //console.log('componente eliminado');
     },
     data(){
         return {

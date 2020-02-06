@@ -85,7 +85,7 @@ export default {
   methods: {
     mostrarUsuario() {
       // eslint-disable-next-line no-undef
-      console.log(this.user);
+      //console.log(this.user);
       this.submitted = true;
 
       this.$v.$touch();
